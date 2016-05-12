@@ -16,10 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
       }
     }
-
-    // tabsOpen[tab.id] = window.setInterval(function() {
-    //   notify('Tab Fever', 'You\'re getting feverish on the tabs');
-    // }, 10000);
   });
 
   chrome.browserAction.onClicked.addListener(function(tab) {
@@ -28,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
       window.clearInterval(tabsOpen[tabId]);
     }
     clearInterval(numTabsOpenIntervalId);
-
-    // hideFavicon();
   });
 
   // add handler when tab is closed
@@ -54,12 +48,4 @@ function notify(title, message) {
 function getNotificationId() {
   var id = Math.floor(Math.random() * 9007199254740992) + 1;
   return id.toString();
-}
-
-function hideFavicon() {
-  chrome.tabs.executeScript(null, {file:'favicon.js'}, function() {
-    chrome.tabs.executeScript(null, {
-      code:'favicon.change("http://www.google.com/s2/favicons?domain=www.google.com");'
-    });
-  });
 }
