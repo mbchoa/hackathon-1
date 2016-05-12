@@ -5,21 +5,19 @@
 body {
 	width: 225px;
 	margin: 0 0;
-	background-color: #EAEAEA;
+	background-color: #CA7A7A;
 }
 
 h1 {
-	background-color: #C92222;
-	/*background-color:black;*/
+	background-color: #671515;
 	display:block;
 	text-align:center;
 	line-height: 50px;
 	width:100%;
 	margin: 0 0;
-	font-size: 20px;
-	font-weight:500;
+	font-size: 25px;
+	font-weight:450;
 	color:white;
-	border-bottom:1px solid black;
 }
 
 .onoffswitch {
@@ -34,7 +32,7 @@ h1 {
 
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 1px solid #671515; border-radius: 10px;
 }
 
 .onoffswitch-inner {
@@ -52,7 +50,7 @@ h1 {
 .onoffswitch-inner:before {
     content: "On";
     padding-left: 10px;
-    background-color: #C92222; color: #FFFFFF;
+    background-color: #8A3030; color: #FFFFFF;
 }
 
 .onoffswitch-inner:after {
@@ -63,11 +61,11 @@ h1 {
 }
 
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
-    background: #FFFFFF;
+    display: block; width: 20px; margin: 6px;
+    background: #FFD3D3;
     position: absolute; top: 0; bottom: 0;
     right: 56px;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 1px solid #671515; border-radius: 8px;
     transition: all 0.3s ease-in 0s; 
 }
 
@@ -91,18 +89,18 @@ h1 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	box-shadow:inset 0px 1px 0px 0px #cf866c;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #C92222), color-stop(1, #bc3315));
-	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
-	background-color:#d0451b;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	border:1px solid #c73f24;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8A3030), color-stop(1, #8A3030));
+	background:-moz-linear-gradient(top, #8A3030 5%, #8A3030 100%);
+	background:-webkit-linear-gradient(top, #8A3030 5%, #8A3030 100%);
+	background:-o-linear-gradient(top, #8A3030 5%, #8A3030 100%);
+	background:-ms-linear-gradient(top, #8A3030 5%, #8A3030 100%);
+	background:linear-gradient(to bottom, #8A3030 5%, #8A3030 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8A3030', endColorstr='#8A3030',GradientType=0);
+	background-color:#8A3030;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #671515;
 	display:inline-block;
 	cursor:pointer;
 	padding:8px 0px;
@@ -115,14 +113,14 @@ h1 {
 
 }
 .myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
-	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
-	background-color:#bc3315;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #8A3030));
+	background:-moz-linear-gradient(top, #bc3315 5%, #8A3030 100%);
+	background:-webkit-linear-gradient(top, #bc3315 5%, #8A3030 100%);
+	background:-o-linear-gradient(top, #bc3315 5%, #8A3030 100%);
+	background:-ms-linear-gradient(top, #bc3315 5%, #8A3030 100%);
+	background:linear-gradient(to bottom, #bc3315 5%, #8A3030 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#8A3030',GradientType=0);
+	background-color:#8A3030;
 }
 .myButton:active {
 	position:relative;
@@ -147,7 +145,10 @@ input {
 	display:inline-block;
 	width:40px;
 	line-height:25px;
-	font-size:18px;
+	font-size:16px;
+	font-weight:bold;
 	text-align:center;
 	border:1px black solid;
+	background-color: #FFD3D3;
+	border-radius:4px;
 }
