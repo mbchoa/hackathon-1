@@ -3,23 +3,63 @@
 // found in the LICENSE file.
 document.addEventListener('DOMContentLoaded', function() {
   const tabsOpen = {};
+  let numTabsOpenIntervalId = 0;
+  let numTabsOpen = 0;
 
-  chrome.browserAction.onClicked.addListener(function(tab) {
-    // chrome.pageAction.setIcon({tabId: tab.id, path: 'assets/circle_red.ico' });
-    chrome.tabs.executeScript({
-      // code: 'document.body.style.backgroundColor="red"'
-
-      code: 'document.title="fever"'
-      // code: 'document.head.link.class="testClass"'
-    })
-  })
-})
+  chrome.tabs.onCreated.addListener(function(tab) {
+    numTabsOpen++;
+    if (numTabsOpen >= 5) {
+      if (numTabsOpenIntervalId === 0) {
+        notify('Tab Fever', 'Warning you have ' + numTabsOpen + ' open tabs');
+        numTabsOpenIntervalId = window.setInterval(function() {
+          notify('Tab Fever', 'Warning you have ' + numTabsOpen + ' open tabs');
+        }, 5000);
+      }
+    }
 
     // tabsOpen[tab.id] = window.setInterval(function() {
-    // var link = document.createElement('link');
-    // link.type = 'image/x-icon';
-    // link.rel = 'shortcut icon';
+    //   notify('Tab Fever', 'You\'re getting feverish on the tabs');
+    // }, 10000);
+  });
 
+  chrome.browserAction.onClicked.addListener(function(tab) {
+    // No tabs or host permissions needed!
+    for (let tabId in tabsOpen) {
+      window.clearInterval(tabsOpen[tabId]);
+    }
+    clearInterval(numTabsOpenIntervalId);
 
-    // link.href = 'assets/circle_red.ico';
+    // hideFavicon();
+  });
 
+  // add handler when tab is closed
+  chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
+    clearInterval(tabsOpen[tabId]);
+    numTabsOpen--;
+    if (numTabsOpen < 5) {
+      clearInterval(numTabsOpenIntervalId);
+    }
+  });
+})
+
+function notify(title, message) {
+  chrome.notifications.create(getNotificationId(), {
+    title: title,
+    iconUrl: 'background.png',
+    type: 'basic',
+    message: message
+  }, function() {});
+}
+
+function getNotificationId() {
+  var id = Math.floor(Math.random() * 9007199254740992) + 1;
+  return id.toString();
+}
+
+function hideFavicon() {
+  chrome.tabs.executeScript(null, {file:'favicon.js'}, function() {
+    chrome.tabs.executeScript(null, {
+      code:'favicon.change("http://www.google.com/s2/favicons?domain=www.google.com");'
+    });
+  });
+}
