@@ -4,14 +4,22 @@
 document.addEventListener('DOMContentLoaded', function() {
   const tabsOpen = {};
 
-  chrome.tabs.onCreated.addListener(function(tab) {
-    tabsOpen[tab.id] = window.setInterval(function() {
-      alert('Tab: ' + tab.title + ' has been open for a long time');
-    }, 5000);
-  });
-
   chrome.browserAction.onClicked.addListener(function(tab) {
-    // No tabs or host permissions needed!
-    window.clearInterval(tabsOpen[tab.id]);
-  });
+    // chrome.pageAction.setIcon({tabId: tab.id, path: 'assets/circle_red.ico' });
+    chrome.tabs.executeScript({
+      // code: 'document.body.style.backgroundColor="red"'
+
+      code: 'document.title="fever"'
+      // code: 'document.head.link.class="testClass"'
+    })
+  })
 })
+
+    // tabsOpen[tab.id] = window.setInterval(function() {
+    // var link = document.createElement('link');
+    // link.type = 'image/x-icon';
+    // link.rel = 'shortcut icon';
+
+
+    // link.href = 'assets/circle_red.ico';
+
