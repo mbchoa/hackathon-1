@@ -12,7 +12,8 @@
     "persistent": true
   },
   "browser_action": {
-    "default_title": "Make this page red"
+    "default_title": "Make this page red",
+    "default_popup": "popup.html"
   },
   "manifest_version": 2
 }
